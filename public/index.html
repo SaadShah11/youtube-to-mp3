@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TubeTone — YouTube to MP3</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="atmosphere" aria-hidden="true"></div>
+    <main class="shell">
+      <header class="brand">
+        <p class="brand-mark">TubeTone</p>
+        <h1>YouTube audio, as MP3.</h1>
+        <p class="lede">
+          Paste a link. Get the best available audio converted to high-quality
+          MP3 on your machine.
+        </p>
+      </header>
+
+      <form id="convert-form" class="convert-form" novalidate>
+        <label class="field-label" for="url">YouTube URL</label>
+        <div class="field-row">
+          <input
+            id="url"
+            name="url"
+            type="url"
+            inputmode="url"
+            autocomplete="off"
+            placeholder="https://www.youtube.com/watch?v=..."
+            required
+          />
+          <button id="submit-btn" type="submit">Convert</button>
+        </div>
+
+        <div id="progress-panel" class="progress-panel" hidden>
+          <div class="progress-meta">
+            <span id="progress-label">Starting…</span>
+            <span id="progress-percent">0%</span>
+          </div>
+          <div
+            class="progress-track"
+            role="progressbar"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="0"
+            id="progress-bar"
+          >
+            <div id="progress-fill" class="progress-fill"></div>
+          </div>
+        </div>
+
+        <p id="status" class="status" role="status" aria-live="polite"></p>
+        <p id="error" class="error" role="alert" hidden></p>
+      </form>
+
+      <p class="footnote">
+        Local only. Requires <code>yt-dlp</code> and <code>ffmpeg</code> on
+        PATH. If IDM pops up, ignore it — this app saves through Chrome’s file
+        picker, not a download link. For personal offline use — respect
+        copyright and YouTube’s terms.
+      </p>
+    </main>
+    <script src="/app.js"></script>
+  </body>
+</html>

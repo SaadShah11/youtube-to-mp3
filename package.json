@@ -1,0 +1,17 @@
+{
+  "name": "youtube-mp3",
+  "version": "1.0.0",
+  "description": "Simple local web app to download YouTube audio as high-quality MP3",
+  "main": "server.js",
+  "scripts": {
+    "start": "node init && node server.js",
+    "dev": "node init && node --watch server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "private": true,
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
